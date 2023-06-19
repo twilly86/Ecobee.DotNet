@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
+#pragma warning disable CS1591
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
@@ -127,5 +129,24 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// </summary>
         [JsonProperty(PropertyName = "desiredCoolRange")]
         public IList<int> DesiredCoolRange { get; set; }
+         
+        [JsonProperty("rawTemperature")]
+        public long RawTemperature { get; set; }
+
+        [JsonProperty("showIconMode")]
+        public long ShowIconMode { get; set; }
+         
+
+        [JsonProperty("actualVOC")]
+        public long ActualVoc { get; set; }
+
+        [JsonProperty("actualCO2")]
+        public long ActualCo2 { get; set; }
+
+        [JsonProperty("actualAQAccuracy")]
+        public long ActualAqAccuracy { get; set; }
+
+        [JsonProperty("actualAQScore")]
+        public long ActualAqScore { get; set; } 
     }
 }

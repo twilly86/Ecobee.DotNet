@@ -21,7 +21,8 @@ namespace I8Beef.Ecobee
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 DateFormatString = "yyyy-MM-dd",
-                NullValueHandling = NullValueHandling.Ignore
+                NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Formatting.Indented
             };
 
             return JsonConvert.SerializeObject(instance, settings);
