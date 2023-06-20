@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-#pragma warning disable CS1591
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
@@ -129,24 +128,41 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// </summary>
         [JsonProperty(PropertyName = "desiredCoolRange")]
         public IList<int> DesiredCoolRange { get; set; }
-         
+
+        /// <summary>
+        /// The dry-bulb temperature recorded by the thermostat. When Energy.FeelsLikeMode is set to humidex, Runtime.actualTemperature will report a "feels like" temperature.
+        /// </summary>
         [JsonProperty("rawTemperature")]
-        public long RawTemperature { get; set; }
+        public int RawTemperature { get; set; }
 
+        /// <summary>
+        /// The currently displayed icon on the thermostat.
+        /// </summary>
         [JsonProperty("showIconMode")]
-        public long ShowIconMode { get; set; }
-         
+        public int ShowIconMode { get; set; }
 
+        /// <summary>
+        /// Actual VOC
+        /// </summary>
         [JsonProperty("actualVOC")]
-        public long ActualVoc { get; set; }
+        public int? ActualVoc { get; set; }
 
+        /// <summary>
+        /// Actual CO2
+        /// </summary>
         [JsonProperty("actualCO2")]
-        public long ActualCo2 { get; set; }
+        public int? ActualCo2 { get; set; }
 
+        /// <summary>
+        /// Actual Air Quality Accuracy
+        /// </summary>
         [JsonProperty("actualAQAccuracy")]
-        public long ActualAqAccuracy { get; set; }
+        public int? ActualAqAccuracy { get; set; }
 
+        /// <summary>
+        /// Actual Air Quality Score
+        /// </summary>
         [JsonProperty("actualAQScore")]
-        public long ActualAqScore { get; set; } 
+        public int? ActualAqScore { get; set; } 
     }
 }
