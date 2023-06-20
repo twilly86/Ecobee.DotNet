@@ -1,35 +1,34 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API Utility.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Utility
     {
         /// <summary>
         /// The Utility company name.
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
         /// <summary>
         /// The Utility company contact phone number.
         /// </summary>
-        [JsonProperty(PropertyName = "phone")]
+        [JsonPropertyName("phone")]
         public string Phone { get; set; }
 
         /// <summary>
         /// The Utility company email address.
         /// </summary>
-        [JsonProperty(PropertyName = "email")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
         /// <summary>
         /// The Utility company web site.
         /// </summary>
-        [JsonProperty(PropertyName = "web")]
+        [JsonPropertyName("web")]
         public string Web { get; set; }
     }
 }

@@ -1,125 +1,124 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API selection.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Selection
     {
         /// <summary>
         /// The type of match data supplied: Values: none, thermostats, user, managementSet.
         /// </summary>
-        [JsonProperty(PropertyName = "selectionType", Required = Required.Always)]
+        [JsonPropertyName("selectionType")]
         public string SelectionType { get; set; }
 
         /// <summary>
         /// The match data based on selectionType(e.g.a list of thermostat idendifiers in the case of a selectionType of thermostats)
         /// </summary>
-        [JsonProperty(PropertyName = "selectionMatch", Required = Required.Always)]
+        [JsonPropertyName("selectionMatch")]
         public string SelectionMatch { get; set; }
 
         /// <summary>
         /// Include the thermostat runtime object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeRuntime")]
+        [JsonPropertyName("includeRuntime")]
         public bool? IncludeRuntime { get; set; }
 
         /// <summary>
         /// Include the extended thermostat runtime object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeExtendedRuntime")]
+        [JsonPropertyName("includeExtendedRuntime")]
         public bool? IncludeExtendedRuntime { get; set; }
 
         /// <summary>
         /// Include the electricity readings object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeElectricity")]
+        [JsonPropertyName("includeElectricity")]
         public bool? IncludeElectricity { get; set; }
 
         /// <summary>
         /// Include the thermostat settings object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeSettings")]
+        [JsonPropertyName("includeSettings")]
         public bool? IncludeSettings { get; set; }
 
         /// <summary>
         /// Include the thermostat location object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeLocation")]
+        [JsonPropertyName("includeLocation")]
         public bool? IncludeLocation { get; set; }
 
         /// <summary>
         /// Include the thermostat program object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeProgram")]
+        [JsonPropertyName("includeProgram")]
         public bool? IncludeProgram { get; set; }
 
         /// <summary>
         /// Include the thermostat calendar events objects.If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeEvents")]
+        [JsonPropertyName("includeEvents")]
         public bool? IncludeEvents { get; set; }
 
         /// <summary>
         /// Include the thermostat device configuration objects. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeDevice")]
+        [JsonPropertyName("includeDevice")]
         public bool? IncludeDevice { get; set; }
 
         /// <summary>
         /// Include the thermostat technician object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeTechnician")]
+        [JsonPropertyName("includeTechnician")]
         public bool? IncludeTechnician { get; set; }
 
         /// <summary>
         /// Include the thermostat utility company object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeUtility")]
+        [JsonPropertyName("includeUtility")]
         public bool? IncludeUtility { get; set; }
 
         /// <summary>
         /// Include the thermostat management company object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeManagement")]
+        [JsonPropertyName("includeManagement")]
         public bool? IncludeManagement { get; set; }
 
         /// <summary>
         /// Include the thermostat's unacknowledged alert objects. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeAlerts")]
+        [JsonPropertyName("includeAlerts")]
         public bool? IncludeAlerts { get; set; }
 
         /// <summary>
         /// Include the current thermostat weather forecast object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeWeather")]
+        [JsonPropertyName("includeWeather")]
         public bool? IncludeWeather { get; set; }
 
         /// <summary>
         /// Include the current thermostat house details object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeHouseDetails")]
+        [JsonPropertyName("includeHouseDetails")]
         public bool? IncludeHouseDetails { get; set; }
 
         /// <summary>
         /// Include the current thermostat OemCfg object. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeOemCfg")]
+        [JsonPropertyName("includeOemCfg")]
         public bool? IncludeOemCfg { get; set; }
 
         /// <summary>
         /// Include the current thermostat equipment status information.If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeEquipmentStatus")]
+        [JsonPropertyName("includeEquipmentStatus")]
         public bool? IncludeEquipmentStatus { get; set; }
 
         /// <summary>
         /// Include the current thermostat alert and reminders settings. If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeNotificationSettings")]
+        [JsonPropertyName("includeNotificationSettings")]
         public bool? IncludeNotificationSettings { get; set; }
 
         /// <summary>
@@ -127,44 +126,44 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// callers with implict authentication, setting this value to true without proper credentials will
         /// result in an authentication exception.
         /// </summary>
-        [JsonProperty(PropertyName = "includePrivacy")]
+        [JsonPropertyName("includePrivacy")]
         public bool? IncludePrivacy { get; set; }
 
         /// <summary>
         /// Include the current firmware version the Thermostat is running.If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeVersion")]
+        [JsonPropertyName("includeVersion")]
         public bool? IncludeVersion { get; set; }
 
         /// <summary>
         /// Include the current securitySettings object for the selected Thermostat(s). If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeSecuritySettings")]
+        [JsonPropertyName("includeSecuritySettings")]
         public bool? IncludeSecuritySettings { get; set; }
 
         /// <summary>
         /// Include the list of current thermostatRemoteSensor objects for the selected Thermostat(s). If not specified,
         /// defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeSensors")]
+        [JsonPropertyName("includeSensors")]
         public bool? IncludeSensors { get; set; }
 
         /// <summary>
         /// Include the audio configuration for the selected Thermostat(s). If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeAudio")]
+        [JsonPropertyName("includeAudio")]
         public bool? IncludeAudio { get; set; }
 
         /// <summary>
         /// Include the energy configuration for the selected Thermostat(s). If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeEnergy")]
+        [JsonPropertyName("includeEnergy")]
         public bool? IncludeEnergy { get; set; }
 
         /// <summary>
         /// Include the capabilities for the selected Thermostat(s). If not specified, defaults to false.
         /// </summary>
-        [JsonProperty(PropertyName = "includeCapabilities")]
+        [JsonPropertyName("includeCapabilities")]
         public bool? IncludeCapabilities { get; set; }
     }
 }

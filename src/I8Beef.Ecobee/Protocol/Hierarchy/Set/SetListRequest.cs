@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
 {
     /// <summary>
     /// Ecobee API set list request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class SetListRequest : RequestBase
     {
         /// <summary>
@@ -27,31 +26,31 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
         /// <summary>
         /// The type of request. Always "list".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "list"; } }
 
         /// <summary>
         /// The management set path.
         /// </summary>
-        [JsonProperty(PropertyName = "setPath", Required = Required.Always)]
+        [JsonPropertyName("setPath")]
         public string SetPath { get; set; }
 
         /// <summary>
         /// Whether to also return the children of the children, recursively. Default: false
         /// </summary>
-        [JsonProperty(PropertyName = "recursive")]
+        [JsonPropertyName("recursive")]
         public bool? Recursive { get; set; }
 
         /// <summary>
         /// Whether to include the privileges with each set. Default: false
         /// </summary>
-        [JsonProperty(PropertyName = "includePrivileges")]
+        [JsonPropertyName("includePrivileges")]
         public bool? IncludePrivileges { get; set; }
 
         /// <summary>
         /// Whether to include a list of all thermostat identifiers assigned to each set. Default: false
         /// </summary>
-        [JsonProperty(PropertyName = "includeThermostats")]
+        [JsonPropertyName("includeThermostats")]
         public bool? IncludeThermostats { get; set; }
     }
 }

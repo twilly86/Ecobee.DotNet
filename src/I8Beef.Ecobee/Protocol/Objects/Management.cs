@@ -1,59 +1,58 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API management.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Management
     {
         /// <summary>
         /// The administrative contact name.
         /// </summary>
-        [JsonProperty(PropertyName = "administrativeContact")]
+        [JsonPropertyName("administrativeContact")]
         public string AdministrativeContact { get; set; }
 
         /// <summary>
         /// The billing contact name.
         /// </summary>
-        [JsonProperty(PropertyName = "billingContact")]
+        [JsonPropertyName("billingContact")]
         public string BillingContact { get; set; }
 
         /// <summary>
         /// The company name.
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
         /// <summary>
         /// The phone number.
         /// </summary>
-        [JsonProperty(PropertyName = "phone")]
+        [JsonPropertyName("phone")]
         public string Phone { get; set; }
 
         /// <summary>
         /// The contact email address.
         /// </summary>
-        [JsonProperty(PropertyName = "email")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
         /// <summary>
         /// The company web site.
         /// </summary>
-        [JsonProperty(PropertyName = "web")]
+        [JsonPropertyName("web")]
         public string Web { get; set; }
 
         /// <summary>
         /// Whether to show management alerts on the thermostat.
         /// </summary>
-        [JsonProperty(PropertyName = "showAlertIdt")]
+        [JsonPropertyName("showAlertIdt")]
         public bool? ShowAlertIdt { get; set; }
 
         /// <summary>
         /// Whether to show management alerts in the web portal.
         /// </summary>
-        [JsonProperty(PropertyName = "showAlertWeb")]
+        [JsonPropertyName("showAlertWeb")]
         public bool? ShowAlertWeb { get; set; }
     }
 }

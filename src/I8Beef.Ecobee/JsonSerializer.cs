@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+
 
 namespace I8Beef.Ecobee
 {
@@ -17,15 +18,14 @@ namespace I8Beef.Ecobee
         /// <returns>Serialized string.</returns>
         public static string Serialize(TType instance)
         {
-            var settings = new JsonSerializerSettings
+            var settings = new JsonSerializerOptions
             {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                DateFormatString = "yyyy-MM-dd",
-                NullValueHandling = NullValueHandling.Ignore,
-                Formatting = Formatting.Indented
+                // ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                // DateFormatString = "yyyy-MM-dd",
+                // NullValueHandling = NullValueHandling.Ignore,
             };
 
-            return JsonConvert.SerializeObject(instance, settings);
+            return JsonSerializer.Serialize(instance, settings);
         }
 
         /// <summary>
@@ -35,14 +35,14 @@ namespace I8Beef.Ecobee
         /// <returns>Deserialized object.</returns>
         public static TType Deserialize(string json)
         {
-            var settings = new JsonSerializerSettings
+            var settings = new JsonSerializerOptions
             {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                DateFormatString = "yyyy-MM-dd",
-                NullValueHandling = NullValueHandling.Ignore
+                // ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                // DateFormatString = "yyyy-MM-dd",
+                // NullValueHandling = NullValueHandling.Ignore
             };
 
-            return JsonConvert.DeserializeObject<TType>(json, settings);
+            return JsonSerializer.Deserialize<TType>(json, settings);
         }
     }
 }

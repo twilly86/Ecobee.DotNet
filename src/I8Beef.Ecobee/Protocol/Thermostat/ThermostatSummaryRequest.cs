@@ -1,13 +1,12 @@
 ﻿using System;
 using I8Beef.Ecobee.Protocol.Objects;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Thermostat
 {
     /// <summary>
     /// Ecobee API thermostat summary request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class ThermostatSummaryRequest : RequestBase
     {
         /// <summary>
@@ -28,7 +27,7 @@ namespace I8Beef.Ecobee.Protocol.Thermostat
         /// <summary>
         /// The selection criteria for update.
         /// </summary>
-        [JsonProperty(PropertyName = "selection", Required = Required.Always)]
+        [JsonPropertyName("selection")]
         public Selection Selection { get; set; }
     }
 }

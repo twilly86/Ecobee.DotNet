@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.Thermostat
 {
     /// <summary>
     /// Ecobee API thermostat move request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class ThermostatMoveRequest : RequestBase
     {
         /// <summary>
@@ -27,19 +26,19 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Thermostat
         /// <summary>
         /// The type of request. Always "move".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "move"; } }
 
         /// <summary>
         /// The set path the thermostats are being moved from.
         /// </summary>
-        [JsonProperty(PropertyName = "setPath", Required = Required.Always)]
+        [JsonPropertyName("setPath")]
         public string SetPath { get; set; }
 
         /// <summary>
         /// The set path the thermostats are being moved to.
         /// </summary>
-        [JsonProperty(PropertyName = "toPath", Required = Required.Always)]
+        [JsonPropertyName("toPath")]
         public string ToPath { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Thermostat
         /// from set. If this property is not provided, all thermostats will be moved which
         /// reside in the from set.
         /// </summary>
-        [JsonProperty(PropertyName = "thermostats")]
+        [JsonPropertyName("thermostats")]
         public string Thermostats { get; set; }
     }
 }

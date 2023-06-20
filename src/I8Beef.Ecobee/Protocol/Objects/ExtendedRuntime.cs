@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API extended runtime.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class ExtendedRuntime
     {
         /// <summary>
@@ -14,13 +13,13 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// by the thermostat. For the 1st value, it is timestamp - 10 mins, for the 2nd value it
         /// is timestamp - 5 mins. Consider day boundaries being straddled when using these values.
         /// </summary>
-        [JsonProperty(PropertyName = "lastReadingTimestamp")]
+        [JsonPropertyName("lastReadingTimestamp")]
         public string LastReadingTimestamp { get; set; }
 
         /// <summary>
         /// The UTC date of the last runtime reading. Format: YYYY-MM-DD
         /// </summary>
-        [JsonProperty(PropertyName = "runtimeDate")]
+        [JsonPropertyName("runtimeDate")]
         public string RuntimeDate { get; set; }
 
         /// <summary>
@@ -28,43 +27,43 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// from this interval to obtain the beginning interval for the last 3 readings. Multiply by 5
         /// mins to obtain the minutes of the day. Range: 0-287
         /// </summary>
-        [JsonProperty(PropertyName = "runtimeInterval")]
+        [JsonPropertyName("runtimeInterval")]
         public int? RuntimeInterval { get; set; }
 
         /// <summary>
         /// The last three 5 minute actual temperature readings
         /// </summary>
-        [JsonProperty(PropertyName = "actualTemperature")]
+        [JsonPropertyName("actualTemperature")]
         public IList<int> ActualTemperature { get; set; }
 
         /// <summary>
         /// The last three 5 minute actual humidity readings.
         /// </summary>
-        [JsonProperty(PropertyName = "actualHumidity")]
+        [JsonPropertyName("actualHumidity")]
         public IList<int> ActualHumidity { get; set; }
 
         /// <summary>
         /// The last three 5 minute desired heat temperature readings.
         /// </summary>
-        [JsonProperty(PropertyName = "desiredHeat")]
+        [JsonPropertyName("desiredHeat")]
         public IList<int> DesiredHeat { get; set; }
 
         /// <summary>
         /// The last three 5 minute desired cool temperature readings.
         /// </summary>
-        [JsonProperty(PropertyName = "desiredCool")]
+        [JsonPropertyName("desiredCool")]
         public IList<int> DesiredCool { get; set; }
 
         /// <summary>
         /// The last three 5 minute desired humidity readings.
         /// </summary>
-        [JsonProperty(PropertyName = "desiredHumidity")]
+        [JsonPropertyName("desiredHumidity")]
         public IList<int> DesiredHumidity { get; set; }
 
         /// <summary>
         /// The last three 5 minute desired de-humidification readings.
         /// </summary>
-        [JsonProperty(PropertyName = "desiredDehumidity")]
+        [JsonPropertyName("desiredDehumidity")]
         public IList<int> DesiredDehumidity { get; set; }
 
         /// <summary>
@@ -73,7 +72,7 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// not to honour the adjustment, it will send 0 for the interval. Compare these values with the
         /// values sent in the DM message to determine whether the thermostat applied the adjustment.
         /// </summary>
-        [JsonProperty(PropertyName = "dmOffset")]
+        [JsonPropertyName("dmOffset")]
         public IList<int> DmOffset { get; set; }
 
         /// <summary>
@@ -82,21 +81,21 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// compressorCoolStage10n, compressorCoolStage20n, compressorCoolOff, compressorHeatStage10n,
         /// compressorHeatStage20n, compressorHeatOff, economyCycle.
         /// </summary>
-        [JsonProperty(PropertyName = "hvacMode")]
+        [JsonPropertyName("hvacMode")]
         public IList<string> HvacMode { get; set; }
 
         /// <summary>
         /// The last three 5 minute HVAC Runtime values in seconds (0-300 seconds) per interval. This
         /// value corresponds to the heat pump stage 1 runtime.
         /// </summary>
-        [JsonProperty(PropertyName = "heatPump1")]
+        [JsonPropertyName("heatPump1")]
         public IList<int> HeatPump1 { get; set; }
 
         /// <summary>
         /// The last three 5 minute HVAC Runtime values in seconds (0-300 seconds) per interval. This
         /// value corresponds to the heat pump stage 2 runtime.
         /// </summary>
-        [JsonProperty(PropertyName = "heatPump2")]
+        [JsonPropertyName("heatPump2")]
         public IList<int> HeatPump2 { get; set; }
 
         /// <summary>
@@ -104,7 +103,7 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// value corresponds to the auxiliary heat stage 1. If the thermostat does not have a heat
         /// pump, this is heat stage 1.
         /// </summary>
-        [JsonProperty(PropertyName = "auxHeat1")]
+        [JsonPropertyName("auxHeat1")]
         public IList<int> AuxHeat1 { get; set; }
 
         /// <summary>
@@ -112,7 +111,7 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// value corresponds to the auxiliary heat stage 2. If the thermostat does not have a heat
         /// pump, this is heat stage 2.
         /// </summary>
-        [JsonProperty(PropertyName = "auxHeat2")]
+        [JsonPropertyName("auxHeat2")]
         public IList<int> AuxHeat2 { get; set; }
 
         /// <summary>
@@ -120,65 +119,65 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// value corresponds to the heat stage 3 if the thermostat does not have a heat pump. Auxiliary
         /// stage 3 is not supported.
         /// </summary>
-        [JsonProperty(PropertyName = "auxHeat3")]
+        [JsonPropertyName("auxHeat3")]
         public IList<int> AuxHeat3 { get; set; }
 
         /// <summary>
         /// The last three 5 minute HVAC Runtime values in seconds (0-300 seconds) per interval. This
         /// value corresponds to the cooling stage 1.
         /// </summary>
-        [JsonProperty(PropertyName = "cool1")]
+        [JsonPropertyName("cool1")]
         public IList<int> Cool1 { get; set; }
 
         /// <summary>
         /// The last three 5 minute HVAC Runtime values in seconds (0-300 seconds) per interval. This
         /// value corresponds to the cooling stage 2.
         /// </summary>
-        [JsonProperty(PropertyName = "cool2")]
+        [JsonPropertyName("cool2")]
         public IList<int> Cool2 { get; set; }
 
         /// <summary>
         /// The last three 5 minute fan Runtime values in seconds (0-300 seconds) per interval.
         /// </summary>
-        [JsonProperty(PropertyName = "fan")]
+        [JsonPropertyName("fan")]
         public IList<int> Fan { get; set; }
 
         /// <summary>
         /// The last three 5 minute humidifier Runtime values in seconds (0-300 seconds) per interval.
         /// </summary>
-        [JsonProperty(PropertyName = "humidifier")]
+        [JsonPropertyName("humidifier")]
         public IList<int> Humidifier { get; set; }
 
         /// <summary>
         /// The last three 5 minute de-humidifier Runtime values in seconds (0-300 seconds) per interval.
         /// </summary>
-        [JsonProperty(PropertyName = "dehumidifier")]
+        [JsonPropertyName("dehumidifier")]
         public IList<int> Dehumidifier { get; set; }
 
         /// <summary>
         /// The last three 5 minute economizer Runtime values in seconds (0-300 seconds) per interval.
         /// </summary>
-        [JsonProperty(PropertyName = "economizer")]
+        [JsonPropertyName("economizer")]
         public IList<int> Economizer { get; set; }
 
         /// <summary>
         /// The last three 5 minute ventilator Runtime values in seconds (0-300 seconds) per interval.
         /// </summary>
-        [JsonProperty(PropertyName = "ventilator")]
+        [JsonPropertyName("ventilator")]
         public IList<int> Ventilator { get; set; }
 
         /// <summary>
         /// The latest value of the current electricity bill as interpolated from the thermostat's
         /// readings from a paired electricity meter.
         /// </summary>
-        [JsonProperty(PropertyName = "currentElectricityBill")]
+        [JsonPropertyName("currentElectricityBill")]
         public int? CurrentElectricityBill { get; set; }
 
         /// <summary>
         /// The latest estimate of the projected electricity bill as interpolated from the thermostat's
         /// readings from a paired electricity meter.
         /// </summary>
-        [JsonProperty(PropertyName = "projectedElectricityBill")]
+        [JsonPropertyName("projectedElectricityBill")]
         public int? ProjectedElectricityBill { get; set; }
     }
 }

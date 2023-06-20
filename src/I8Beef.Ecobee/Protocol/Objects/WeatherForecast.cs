@@ -1,107 +1,106 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API weather forcast.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class WeatherForecast
     {
         /// <summary>
         /// The Integer value used to map to a weatherSymbol. See list of mappings above.
         /// </summary>
-        [JsonProperty(PropertyName = "weatherSymbol")]
+        [JsonPropertyName("weatherSymbol")]
         public WeatherSymbol? WeatherSymbol { get; set; }
 
         /// <summary>
         /// The time stamp of the weather forecast.
         /// </summary>
-        [JsonProperty(PropertyName = "dateTime")]
+        [JsonPropertyName("dateTime")]
         public string DateTime { get; set; }
 
         /// <summary>
         /// A text value representing the current weather condition.
         /// </summary>
-        [JsonProperty(PropertyName = "condition")]
+        [JsonPropertyName("condition")]
         public string Condition { get; set; }
 
         /// <summary>
         /// The current temperature.
         /// </summary>
-        [JsonProperty(PropertyName = "temperature")]
+        [JsonPropertyName("temperature")]
         public int? Temperature { get; set; }
 
         /// <summary>
         /// The current barometric pressure.
         /// </summary>
-        [JsonProperty(PropertyName = "pressure")]
+        [JsonPropertyName("pressure")]
         public int? Pressure { get; set; }
 
         /// <summary>
         /// The current humidity.
         /// </summary>
-        [JsonProperty(PropertyName = "relativeHumidity")]
+        [JsonPropertyName("relativeHumidity")]
         public int? RelativeHumidity { get; set; }
 
         /// <summary>
         /// The dewpoint.
         /// </summary>
-        [JsonProperty(PropertyName = "dewpoint")]
+        [JsonPropertyName("dewpoint")]
         public int? Dewpoint { get; set; }
 
         /// <summary>
         /// The visibility in meters; 0 - 70,000.
         /// </summary>
-        [JsonProperty(PropertyName = "visibility")]
+        [JsonPropertyName("visibility")]
         public int? Visibility { get; set; }
 
         /// <summary>
         /// The wind speed as an integer in mph * 1000.
         /// </summary>
-        [JsonProperty(PropertyName = "windSpeed")]
+        [JsonPropertyName("windSpeed")]
         public int? WindSpeed { get; set; }
 
         /// <summary>
         /// The wind gust speed.
         /// </summary>
-        [JsonProperty(PropertyName = "windGust")]
+        [JsonPropertyName("windGust")]
         public int? WindGust { get; set; }
 
         /// <summary>
         /// The wind direction.
         /// </summary>
-        [JsonProperty(PropertyName = "windDirection")]
+        [JsonPropertyName("windDirection")]
         public string WindDirection { get; set; }
 
         /// <summary>
         /// The wind bearing.
         /// </summary>
-        [JsonProperty(PropertyName = "windBearing")]
+        [JsonPropertyName("windBearing")]
         public int? WindBearing { get; set; }
 
         /// <summary>
         /// Probability of precipitation.
         /// </summary>
-        [JsonProperty(PropertyName = "pop")]
+        [JsonPropertyName("pop")]
         public int? Pop { get; set; }
 
         /// <summary>
         /// The predicted high temperature for the day.
         /// </summary>
-        [JsonProperty(PropertyName = "tempHigh")]
+        [JsonPropertyName("tempHigh")]
         public int? TempHigh { get; set; }
 
         /// <summary>
         /// The predicted low temperature for the day.
         /// </summary>
-        [JsonProperty(PropertyName = "tempLow")]
+        [JsonPropertyName("tempLow")]
         public int? TempLow { get; set; }
 
         /// <summary>
         /// The cloud cover condition.
         /// </summary>
-        [JsonProperty(PropertyName = "sky")]
+        [JsonPropertyName("sky")]
         public WeatherSky? Sky { get; set; }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using I8Beef.Ecobee.Protocol.Objects;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol
 {
     /// <summary>
     /// General Ecobee API response.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Response
     {
         /// <summary>
@@ -16,7 +15,7 @@ namespace I8Beef.Ecobee.Protocol
         /// occurred. Refer to the Response Codes section for details of each error which
         /// may be returned.
         /// </summary>
-        [JsonProperty(PropertyName = "status")]
+        [JsonPropertyName("status")]
         public Status Status { get; set; }
     }
 }

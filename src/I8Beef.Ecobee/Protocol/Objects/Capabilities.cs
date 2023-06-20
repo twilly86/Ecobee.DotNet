@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
@@ -10,7 +10,7 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// <summary>
         /// The fan capabilities of the given thermostat.
         /// </summary>
-        [JsonProperty(PropertyName = "fanCapabilities")]
+        [JsonPropertyName("fanCapabilities")]
         public FanCapabilities FanCapabilities { get; set; }
     }
 }

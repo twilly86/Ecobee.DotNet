@@ -1,12 +1,11 @@
 ﻿using I8Beef.Ecobee.Protocol.Objects;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Functions
 {
     /// <summary>
     /// Ecobee API unlink voice engine function.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public sealed class UnlinkVoiceEngineFunction : Function
     {
         /// <summary>
@@ -20,14 +19,14 @@ namespace I8Beef.Ecobee.Protocol.Functions
         /// <summary>
         /// The function type name. See the type name in the function documentation.
         /// </summary>
-        [JsonProperty(PropertyName = "type", Required = Required.Always)]
+        [JsonPropertyName("type")]
         public override string Type { get { return "unlinkVoiceEngine"; } set { } }
 
         /// <summary>
         /// A map of key=value pairs as the parameters to the function. See
         /// individual function documentation for the properties.
         /// </summary>
-        [JsonProperty(PropertyName = "params", Required = Required.Always)]
+        [JsonPropertyName("params")]
         public override FunctionParams Params { get; set; }
     }
 }

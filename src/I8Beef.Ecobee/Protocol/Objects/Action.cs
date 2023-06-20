@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API action.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Action
     {
         /// <summary>
@@ -14,61 +13,61 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// turnOffDehumidifer, turnOffHumidifier, turnOnCool, turnOnDehumidifier,
         /// turnOnFan, turnOnHeat, turnOnHumidifier.
         /// </summary>
-        [JsonProperty(PropertyName = "type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
         /// <summary>
         /// Flag to enable an alert to be generated when the state is triggered.
         /// </summary>
-        [JsonProperty(PropertyName = "sendAlert")]
+        [JsonPropertyName("sendAlert")]
         public bool? SendAlert { get; set; }
 
         /// <summary>
         /// Whether to send an update message.
         /// </summary>
-        [JsonProperty(PropertyName = "sendUpdate")]
+        [JsonPropertyName("sendUpdate")]
         public bool? SendUpdate { get; set; }
 
         /// <summary>
         /// Delay in seconds before the action is triggered by the state change.
         /// </summary>
-        [JsonProperty(PropertyName = "activationDelay")]
+        [JsonPropertyName("activationDelay")]
         public int? ActivationDelay { get; set; }
 
         /// <summary>
         /// The amount of time to wait before deactivating this state after the state has been cleared.
         /// </summary>
-        [JsonProperty(PropertyName = "deactivationDelay")]
+        [JsonPropertyName("deactivationDelay")]
         public int? DeactivationDelay { get; set; }
 
         /// <summary>
         /// The minimum length of time to maintain action after sensor has been deactivated.
         /// </summary>
-        [JsonProperty(PropertyName = "minActionDuration")]
+        [JsonPropertyName("minActionDuration")]
         public int? MinActionDuration { get; set; }
 
         /// <summary>
         /// The amount to increase/decrease current setpoint? if the type = adjustTemp.
         /// </summary>
-        [JsonProperty(PropertyName = "heatAdjustTemp")]
+        [JsonPropertyName("heatAdjustTemp")]
         public int? HeatAdjustTemp { get; set; }
 
         /// <summary>
         /// The amount to increase/decrease current setpoint? if the type = adjustTemp.
         /// </summary>
-        [JsonProperty(PropertyName = "coolAdjustTemp")]
+        [JsonPropertyName("coolAdjustTemp")]
         public int? CoolAdjustTemp { get; set; }
 
         /// <summary>
         /// The user defined relay to be activated, only used for type == activateRelay.
         /// </summary>
-        [JsonProperty(PropertyName = "activateRelay")]
+        [JsonPropertyName("activateRelay")]
         public string ActivateRelay { get; set; }
 
         /// <summary>
         /// Select if relay is to be open or closed when activated, only used for type == activateRelay.
         /// </summary>
-        [JsonProperty(PropertyName = "activateRelayOpen")]
+        [JsonPropertyName("activateRelayOpen")]
         public bool? ActivateRelayOpen { get; set; }
     }
 }

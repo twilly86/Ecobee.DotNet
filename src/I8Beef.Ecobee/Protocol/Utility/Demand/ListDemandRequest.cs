@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Utility.Demand
 {
     /// <summary>
     /// Ecobee API list deman request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class ListDemandRequest : RequestBase
     {
         /// <summary>
@@ -27,7 +26,7 @@ namespace I8Beef.Ecobee.Protocol.Utility.Demand
         /// <summary>
         /// The type of request. Always "list".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "list"; } }
     }
 }

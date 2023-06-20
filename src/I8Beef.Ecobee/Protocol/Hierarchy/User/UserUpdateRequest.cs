@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using I8Beef.Ecobee.Protocol.Objects;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.User
 {
     /// <summary>
     /// Ecobee API user update request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class UserUpdateRequest : RequestBase
     {
         /// <summary>
@@ -29,19 +28,19 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.User
         /// <summary>
         /// The type of request. Always "update".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "update"; } }
 
         /// <summary>
         /// The list of users to update.
         /// </summary>
-        [JsonProperty(PropertyName = "users")]
+        [JsonPropertyName("users")]
         public IList<HierarchyUser> Users { get; set; }
 
         /// <summary>
         /// The privileges to update or add.
         /// </summary>
-        [JsonProperty(PropertyName = "privileges")]
+        [JsonPropertyName("privileges")]
         public IList<HierarchyPrivilege> Privileges { get; set; }
     }
 }

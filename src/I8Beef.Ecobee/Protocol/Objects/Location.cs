@@ -1,71 +1,70 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API location.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Location
     {
         /// <summary>
         /// The timezone offset in minutes from UTC.
         /// </summary>
-        [JsonProperty(PropertyName = "timeZoneOffsetMinutes")]
+        [JsonPropertyName("timeZoneOffsetMinutes")]
         public int? TimeZoneOffsetMinutes { get; set; }
 
         /// <summary>
         /// The Olson timezone the thermostat resides in (e.g America/Toronto).
         /// </summary>
-        [JsonProperty(PropertyName = "timeZone")]
+        [JsonPropertyName("timeZone")]
         public string TimeZone { get; set; }
 
         /// <summary>
         /// Whether the thermostat should factor in daylight savings when displaying the date and time.
         /// </summary>
-        [JsonProperty(PropertyName = "isDaylightSaving")]
+        [JsonPropertyName("isDaylightSaving")]
         public bool? IsDaylightSaving { get; set; }
 
         /// <summary>
         /// The thermostat location street address.
         /// </summary>
-        [JsonProperty(PropertyName = "streetAddress")]
+        [JsonPropertyName("streetAddress")]
         public string StreetAddress { get; set; }
 
         /// <summary>
         /// The thermostat location city.
         /// </summary>
-        [JsonProperty(PropertyName = "city")]
+        [JsonPropertyName("city")]
         public string City { get; set; }
 
         /// <summary>
         /// The thermostat location State or Province.
         /// </summary>
-        [JsonProperty(PropertyName = "provinceState")]
+        [JsonPropertyName("provinceState")]
         public string ProvinceState { get; set; }
 
         /// <summary>
         /// The thermostat location country.
         /// </summary>
-        [JsonProperty(PropertyName = "country")]
+        [JsonPropertyName("country")]
         public string Country { get; set; }
 
         /// <summary>
         /// The thermostat location ZIP or Postal code.
         /// </summary>
-        [JsonProperty(PropertyName = "postalCode")]
+        [JsonPropertyName("postalCode")]
         public string PostalCode { get; set; }
 
         /// <summary>
         /// The thermostat owner's phone number
         /// </summary>
-        [JsonProperty(PropertyName = "phoneNumber")]
+        [JsonPropertyName("phoneNumber")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
         /// The lat/long geographic coordinates of the thermostat location.
         /// </summary>
-        [JsonProperty(PropertyName = "mapCoordinates")]
+        [JsonPropertyName("mapCoordinates")]
         public string MapCoordinates { get; set; }
     }
 }

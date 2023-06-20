@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Utility.Demand
 {
     /// <summary>
     /// Ecobee API cancel demand request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class CancelDemandRequest : RequestBase
     {
         /// <summary>
@@ -27,13 +26,13 @@ namespace I8Beef.Ecobee.Protocol.Utility.Demand
         /// <summary>
         /// The type of request. Always "cancel".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get; set; }
 
         /// <summary>
         /// The system generated ID of the DR.
         /// </summary>
-        [JsonProperty(PropertyName = "demandResponseRef", Required = Required.Always)]
+        [JsonPropertyName("demandResponseRef")]
         public string DemandResponseRef { get; set; }
     }
 }

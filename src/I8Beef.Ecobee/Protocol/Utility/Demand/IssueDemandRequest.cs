@@ -1,13 +1,12 @@
 ﻿using System;
 using I8Beef.Ecobee.Protocol.Objects;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Utility.Demand
 {
     /// <summary>
     /// Ecobee API issue demand request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class IssueDemandRequest : RequestBase
     {
         /// <summary>
@@ -28,19 +27,19 @@ namespace I8Beef.Ecobee.Protocol.Utility.Demand
         /// <summary>
         /// The selection criteria for update.
         /// </summary>
-        [JsonProperty(PropertyName = "selection", Required = Required.Always)]
+        [JsonPropertyName("selection")]
         public Selection Selection { get; set; }
 
         /// <summary>
         /// The type of request. Always "create".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get; set; }
 
         /// <summary>
         /// The demand response object to create.
         /// </summary>
-        [JsonProperty(PropertyName = "demandResponse", Required = Required.Always)]
+        [JsonPropertyName("demandResponse")]
         public DemandResponse DemandResponse { get; set; }
     }
 }

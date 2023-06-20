@@ -1,24 +1,23 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API runtime sensor report.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class RuntimeSensorReport
     {
         /// <summary>
         /// The thermostat identifier for the report.
         /// </summary>
-        [JsonProperty(PropertyName = "thermostatIdentifier")]
+        [JsonPropertyName("thermostatIdentifier")]
         public string ThermostatIdentifier { get; set; }
 
         /// <summary>
         /// The list of sensor metadata configured in the thermostat.
         /// </summary>
-        [JsonProperty(PropertyName = "sensors")]
+        [JsonPropertyName("sensors")]
         public IList<RuntimeSensorMetadata> Sensors { get; set; }
 
         /// <summary>
@@ -26,13 +25,13 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// match the sensorId within the sensor metadata. The first two columns are the date and
         /// time, the following are the defined sensorIds.
         /// </summary>
-        [JsonProperty(PropertyName = "columns")]
+        [JsonPropertyName("columns")]
         public IList<string> Columns { get; set; }
 
         /// <summary>
         /// The list of CSV rows containing the column data as defined in the columns property.
         /// </summary>
-        [JsonProperty(PropertyName = "data")]
+        [JsonPropertyName("data")]
         public IList<string> Data { get; set; }
     }
 }

@@ -1,17 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API VoiceEngine.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class VoiceEngine
     {
         /// <summary>
         /// The name of the voice engine.
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -19,7 +18,7 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// selected thermostat. You can change the flag value by using UnlinkVoiceEngine
         /// thermostat function.
         /// </summary>
-        [JsonProperty(PropertyName = "enabled")]
+        [JsonPropertyName("enabled")]
         public bool? Enabled { get; set; }
     }
 }

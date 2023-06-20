@@ -1,23 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API Status.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Status
     {
         /// <summary>
         /// The status code for this status.
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
+        [JsonPropertyName("code")]
         public int? Code { get; set; }
 
         /// <summary>
         /// The detailed message for this status.
         /// </summary>
-        [JsonProperty(PropertyName = "message")]
+        [JsonPropertyName("message")]
         public string Message { get; set; }
     }
 }

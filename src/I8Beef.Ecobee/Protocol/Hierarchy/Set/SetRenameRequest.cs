@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
 {
     /// <summary>
     /// Ecobee API set rename request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class SetRenameRequest : RequestBase
     {
         /// <summary>
@@ -27,19 +26,19 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
         /// <summary>
         /// The type of request. Always "rename".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "rename"; } }
 
         /// <summary>
         /// The path of the set to rename.
         /// </summary>
-        [JsonProperty(PropertyName = "setPath", Required = Required.Always)]
+        [JsonPropertyName("setPath")]
         public string SetPath { get; set; }
 
         /// <summary>
         /// The new name to assign. Must be unique to that parent.
         /// </summary>
-        [JsonProperty(PropertyName = "newName", Required = Required.Always)]
+        [JsonPropertyName("newName")]
         public string NewName { get; set; }
     }
 }

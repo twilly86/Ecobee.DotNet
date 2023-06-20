@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
@@ -10,7 +10,7 @@ namespace I8Beef.Ecobee.Protocol.Objects
         /// <summary>
         /// The list of speed options that the thermostat is wired to support. Options include: LOW, MEDIUM, HIGH and OPTIMIZED
         /// </summary>
-        [JsonProperty(PropertyName = "speedOptions")]
+        [JsonPropertyName("speedOptions")]
         public string SpeedOptions { get; set; }
     }
 }

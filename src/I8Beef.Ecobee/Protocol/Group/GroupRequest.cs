@@ -1,13 +1,12 @@
 ﻿using System;
 using I8Beef.Ecobee.Protocol.Objects;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Group
 {
     /// <summary>
     /// Ecobee API group request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class GroupRequest : RequestBase
     {
         /// <summary>
@@ -28,7 +27,7 @@ namespace I8Beef.Ecobee.Protocol.Group
         /// <summary>
         /// The selection criteria for the request.
         /// </summary>
-        [JsonProperty(PropertyName = "selection", Required = Required.Always)]
+        [JsonPropertyName("selection")]
         public Selection Selection { get; set; }
     }
 }

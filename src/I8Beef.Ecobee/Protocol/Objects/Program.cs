@@ -1,30 +1,29 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Objects
 {
     /// <summary>
     /// Ecobee API program.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class Program
     {
         /// <summary>
         /// The Schedule object defining the program schedule.
         /// </summary>
-        [JsonProperty(PropertyName = "schedule", Required = Required.Always)]
+        [JsonPropertyName("schedule")]
         public IList<string[]> Schedule { get; set; }
 
         /// <summary>
         /// The list of Climate objects defining all the climates in the program schedule.
         /// </summary>
-        [JsonProperty(PropertyName = "climates", Required = Required.Always)]
+        [JsonPropertyName("climates")]
         public IList<Climate> Climates { get; set; }
 
         /// <summary>
         /// The currently active climate, identified by its ClimateRef.
         /// </summary>
-        [JsonProperty(PropertyName = "currentClimateRef")]
+        [JsonPropertyName("currentClimateRef")]
         public string CurrentClimateRef { get; set; }
     }
 }

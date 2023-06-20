@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.Thermostat
 {
     /// <summary>
     /// Ecobee API thermostat assign request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class ThermostatAssignRequest : RequestBase
     {
         /// <summary>
@@ -27,19 +26,19 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Thermostat
         /// <summary>
         /// The type of request. Always "assign".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "assign"; } }
 
         /// <summary>
         /// The set path the thermostats are being moved to.
         /// </summary>
-        [JsonProperty(PropertyName = "setPath", Required = Required.Always)]
+        [JsonPropertyName("setPath")]
         public string SetPath { get; set; }
 
         /// <summary>
         /// Comma separated list of thermostat identifiers.
         /// </summary>
-        [JsonProperty(PropertyName = "thermostats", Required = Required.Always)]
+        [JsonPropertyName("thermostats")]
         public string Thermostats { get; set; }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
 {
     /// <summary>
     /// Ecobee API set remove request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class SetRemoveRequest : RequestBase
     {
         /// <summary>
@@ -27,13 +26,13 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
         /// <summary>
         /// The type of request. Always "remove".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "remove"; } }
 
         /// <summary>
         /// The path of the set to delete.
         /// </summary>
-        [JsonProperty(PropertyName = "setPath", Required = Required.Always)]
+        [JsonPropertyName("setPath")]
         public string SetPath { get; set; }
     }
 }

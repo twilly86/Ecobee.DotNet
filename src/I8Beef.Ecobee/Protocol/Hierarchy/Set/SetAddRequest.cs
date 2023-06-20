@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
 {
     /// <summary>
     /// Ecobee API set add request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class SetAddRequest : RequestBase
     {
         /// <summary>
@@ -27,19 +26,19 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
         /// <summary>
         /// The type of request. Always "add".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "add"; } }
 
         /// <summary>
         /// The name of the new set.
         /// </summary>
-        [JsonProperty(PropertyName = "setName", Required = Required.Always)]
+        [JsonPropertyName("setName")]
         public string SetName { get; set; }
 
         /// <summary>
         /// The path to the parent for the new set.
         /// </summary>
-        [JsonProperty(PropertyName = "parentPath", Required = Required.Always)]
+        [JsonPropertyName("parentPath")]
         public string ParentPath { get; set; }
     }
 }

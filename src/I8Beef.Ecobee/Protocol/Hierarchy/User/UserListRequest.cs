@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.User
 {
     /// <summary>
     /// Ecobee API user list request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class UserListRequest : RequestBase
     {
         /// <summary>
@@ -27,25 +26,25 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.User
         /// <summary>
         /// The type of request. Always "list".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "list"; } }
 
         /// <summary>
         /// The management set path.
         /// </summary>
-        [JsonProperty(PropertyName = "setPath", Required = Required.Always)]
+        [JsonPropertyName("setPath")]
         public string SetPath { get; set; }
 
         /// <summary>
         /// Whether to include the user privileges.
         /// </summary>
-        [JsonProperty(PropertyName = "includePrivileges")]
+        [JsonPropertyName("includePrivileges")]
         public bool? IncludePrivileges { get; set; }
 
         /// <summary>
         /// Whether to also return the children of the children, recursively. Default: false
         /// </summary>
-        [JsonProperty(PropertyName = "recursive")]
+        [JsonPropertyName("recursive")]
         public bool? Recursive { get; set; }
     }
 }

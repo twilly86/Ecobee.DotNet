@@ -1,12 +1,11 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace I8Beef.Ecobee.Protocol.Hierarchy.Thermostat
 {
     /// <summary>
     /// Ecobee API thermostat unregister request.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
     public class ThermostatUnregisterRequest : RequestBase
     {
         /// <summary>
@@ -27,13 +26,13 @@ namespace I8Beef.Ecobee.Protocol.Hierarchy.Thermostat
         /// <summary>
         /// The type of request. Always "unregister".
         /// </summary>
-        [JsonProperty(PropertyName = "operation", Required = Required.Always)]
+        [JsonPropertyName("operation")]
         public string Operation { get { return "unregister"; } }
 
         /// <summary>
         /// Comma separated list of thermostat identifiers.
         /// </summary>
-        [JsonProperty(PropertyName = "thermostats", Required = Required.Always)]
+        [JsonPropertyName("thermostats")]
         public string Thermostats { get; set; }
     }
 }
