@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
 
 
 namespace I8Beef.Ecobee
@@ -45,4 +44,6 @@ namespace I8Beef.Ecobee
             return JsonSerializer.Deserialize<TType>(json, settings);
         }
     }
+
+
 }
