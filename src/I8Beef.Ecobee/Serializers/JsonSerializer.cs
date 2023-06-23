@@ -3,6 +3,7 @@ using I8Beef.Ecobee.Protocol.Objects;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
+using I8Beef.Ecobee.Protocol;
 
 
 namespace I8Beef.Ecobee.Serializers;
@@ -31,6 +32,9 @@ public static class JsonSerializer<TType>
         };
 
         settings.Converters.Add(new DateTimeConverterUsingDateTimeParseMethod("yyyy-MM-dd"));
+
+        // too soon
+        //settings.Converters.Add(new JsonStringEnumConverter<RequestType>());
         settings.Converters.Add(new JsonStringEnumConverter());
         settings.Converters.Add(new CustomJsonConverterForType());
 
