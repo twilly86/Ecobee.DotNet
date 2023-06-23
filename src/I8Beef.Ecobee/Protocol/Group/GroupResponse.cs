@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace I8Beef.Ecobee.Protocol.Group
+namespace I8Beef.Ecobee.Protocol.Group;
+
+/// <summary>
+/// Ecobee API group response.
+/// </summary>
+public class GroupResponse : Response
 {
     /// <summary>
-    /// Ecobee API group response.
+    /// The list of Groups returned by the request.
     /// </summary>
-    public class GroupResponse : Response
-    {
-        /// <summary>
-        /// The list of Groups returned by the request.
-        /// </summary>
-        [JsonPropertyName("groups")]
-        public IList<Objects.Group> Groups { get; set; }
-    }
+    [JsonPropertyName("groups")]
+    public IList<Objects.Group> Groups { get; set; }
 }

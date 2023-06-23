@@ -1,38 +1,37 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace I8Beef.Ecobee.Protocol.Hierarchy.Set
+namespace I8Beef.Ecobee.Protocol.Hierarchy.Set;
+
+/// <summary>
+/// Ecobee API set remove request.
+/// </summary>
+public class SetRemoveRequest : RequestBase
 {
     /// <summary>
-    /// Ecobee API set remove request.
+    /// Request URI.
     /// </summary>
-    public class SetRemoveRequest : RequestBase
-    {
-        /// <summary>
-        /// Request URI.
-        /// </summary>
-        public override string Uri { get { return "/hierarchy/set"; } }
+    public override string Uri => "/hierarchy/set";
 
-        /// <summary>
-        /// Request type (GET or POST).
-        /// </summary>
-        public override RequestType RequestType { get { return RequestType.POST; } }
+    /// <summary>
+    /// Request type (GET or POST).
+    /// </summary>
+    public override RequestType RequestType => RequestType.POST;
 
-        /// <summary>
-        /// Type to deserialize the response to.
-        /// </summary>
-        public override Type ResponseType { get { return typeof(Response); } }
+    /// <summary>
+    /// Type to deserialize the response to.
+    /// </summary>
+    public override Type ResponseType => typeof(Response);
 
-        /// <summary>
-        /// The type of request. Always "remove".
-        /// </summary>
-        [JsonPropertyName("operation")]
-        public string Operation { get { return "remove"; } }
+    /// <summary>
+    /// The type of request. Always "remove".
+    /// </summary>
+    [JsonPropertyName("operation")]
+    public string Operation => "remove";
 
-        /// <summary>
-        /// The path of the set to delete.
-        /// </summary>
-        [JsonPropertyName("setPath")]
-        public string SetPath { get; set; }
-    }
+    /// <summary>
+    /// The path of the set to delete.
+    /// </summary>
+    [JsonPropertyName("setPath")]
+    public string SetPath { get; set; }
 }

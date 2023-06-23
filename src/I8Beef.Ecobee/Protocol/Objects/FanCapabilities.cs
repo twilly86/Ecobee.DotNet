@@ -1,16 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace I8Beef.Ecobee.Protocol.Objects
+namespace I8Beef.Ecobee.Protocol.Objects;
+
+/// <summary>
+/// The fan capabilities object represents the set of fan capabilities the thermostat has. For example, this can include the available fan speed options.
+/// </summary>
+public class FanCapabilities
 {
     /// <summary>
-    /// The fan capabilities object represents the set of fan capabilities the thermostat has. For example, this can include the available fan speed options.
+    /// The list of speed options that the thermostat is wired to support. Options include: LOW, MEDIUM, HIGH and OPTIMIZED
     /// </summary>
-    public class FanCapabilities
-    {
-        /// <summary>
-        /// The list of speed options that the thermostat is wired to support. Options include: LOW, MEDIUM, HIGH and OPTIMIZED
-        /// </summary>
-        [JsonPropertyName("speedOptions")]
-        public string SpeedOptions { get; set; }
-    }
+    [JsonPropertyName("speedOptions")]
+    public string SpeedOptions { get; set; }
 }

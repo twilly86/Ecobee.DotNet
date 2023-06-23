@@ -1,61 +1,60 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace I8Beef.Ecobee.Protocol.Objects
+namespace I8Beef.Ecobee.Protocol.Objects;
+
+/// <summary>
+/// Ecobee API output.
+/// </summary>
+public class Output
 {
     /// <summary>
-    /// Ecobee API output.
+    /// The name of the outpute
     /// </summary>
-    public class Output
-    {
-        /// <summary>
-        /// The name of the outpute
-        /// </summary>
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
 
-        /// <summary>
-        /// The thermostat zone the output is associated with
-        /// </summary>
-        [JsonPropertyName("zone")]
-        public int? Zone { get; set; }
+    /// <summary>
+    /// The thermostat zone the output is associated with
+    /// </summary>
+    [JsonPropertyName("zone")]
+    public int? Zone { get; set; }
 
-        /// <summary>
-        /// The unique output identifier number.
-        /// </summary>
-        [JsonPropertyName("outputId")]
-        public int? OutputId { get; set; }
+    /// <summary>
+    /// The unique output identifier number.
+    /// </summary>
+    [JsonPropertyName("outputId")]
+    public int? OutputId { get; set; }
 
-        /// <summary>
-        /// The type of output. Values: compressor1, compressor2, dehumidifier, economizer, fan, heat1, heat2,
-        /// heat3, heatPumpReversal, humidifer, none, occupancy, userDefined, ventilator, zoneCool, zoneFan,
-        /// zoneHeat.
-        /// </summary>
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
+    /// <summary>
+    /// The type of output. Values: compressor1, compressor2, dehumidifier, economizer, fan, heat1, heat2,
+    /// heat3, heatPumpReversal, humidifer, none, occupancy, userDefined, ventilator, zoneCool, zoneFan,
+    /// zoneHeat.
+    /// </summary>
+    [JsonPropertyName("type")]
+    public string Type { get; set; }
 
-        /// <summary>
-        /// Whether to send an update message.
-        /// </summary>
-        [JsonPropertyName("sendUpdate")]
-        public bool? SendUpdate { get; set; }
+    /// <summary>
+    /// Whether to send an update message.
+    /// </summary>
+    [JsonPropertyName("sendUpdate")]
+    public bool? SendUpdate { get; set; }
 
-        /// <summary>
-        /// If true, when this output is activated it will close the relay. Otherwise, activating the relay will
-        /// open the relay.
-        /// </summary>
-        [JsonPropertyName("activeClosed")]
-        public bool? ActiveClosed { get; set; }
+    /// <summary>
+    /// If true, when this output is activated it will close the relay. Otherwise, activating the relay will
+    /// open the relay.
+    /// </summary>
+    [JsonPropertyName("activeClosed")]
+    public bool? ActiveClosed { get; set; }
 
-        /// <summary>
-        /// Time to activate relay - in seconds.
-        /// </summary>
-        [JsonPropertyName("activationTime")]
-        public int? ActivationTime { get; set; }
+    /// <summary>
+    /// Time to activate relay - in seconds.
+    /// </summary>
+    [JsonPropertyName("activationTime")]
+    public int? ActivationTime { get; set; }
 
-        /// <summary>
-        /// Time to deactivate relay - in seconds.
-        /// </summary>
-        [JsonPropertyName("deactivationTime")]
-        public int? DeactivationTime { get; set; }
-    }
+    /// <summary>
+    /// Time to deactivate relay - in seconds.
+    /// </summary>
+    [JsonPropertyName("deactivationTime")]
+    public int? DeactivationTime { get; set; }
 }

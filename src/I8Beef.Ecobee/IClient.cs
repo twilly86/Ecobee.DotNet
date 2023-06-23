@@ -1,52 +1,54 @@
-﻿using System.Threading;
+﻿using System;
+using System.Text.Json.Serialization.Metadata;
+using System.Threading;
 using System.Threading.Tasks;
 using I8Beef.Ecobee.Messages;
 using I8Beef.Ecobee.Protocol;
 
-namespace I8Beef.Ecobee
+namespace I8Beef.Ecobee;
+
+/// <summary>
+/// Ecobee client implementation.
+/// </summary>
+public interface IClient
 {
     /// <summary>
-    /// Ecobee client implementation.
+    /// Get an access token using the specified auth code.
     /// </summary>
-    public interface IClient
-    {
-        /// <summary>
-        /// Get an access token using the specified auth code.
-        /// </summary>
-        /// <param name="authCode">Code previously provided by Ecobee.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="Task"/>.</returns>
-        Task GetAccessTokenAsync(string authCode, CancellationToken cancellationToken = default);
+    /// <param name="authCode">Code previously provided by Ecobee.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>A <see cref="Task"/>.</returns>
+    Task GetAccessTokenAsync(string authCode, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Peforms a GET operation against the Ecobee API.
-        /// </summary>
-        /// <typeparam name="TRequest">The type of request to send to the Ecobee API.</typeparam>
-        /// <typeparam name="TResponse">The type of response from the Ecobee API.</typeparam>
-        /// <param name="request">The request to send to the Ecobee API.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>The response from the Ecobee API.</returns>
-        Task<TResponse> GetAsync<TRequest, TResponse>(TRequest request, CancellationToken cancellationToken = default)
-            where TRequest : RequestBase
-            where TResponse : Response;
+    /// <summary>
+    /// Peforms a GET operation against the Ecobee API.
+    /// </summary>
+    /// <typeparam name="TRequest">The type of request to send to the Ecobee API.</typeparam>
+    /// <typeparam name="TResponse">The type of response from the Ecobee API.</typeparam>
+    /// <param name="request">The request to send to the Ecobee API.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>The response from the Ecobee API.</returns>
+    Task<TResponse> GetAsync<TRequest, TResponse>(TRequest request, CancellationToken cancellationToken = default)
+        where TRequest : RequestBase
+        where TResponse : Response;
 
-        /// <summary>
-        /// Get a pin from Ecobee API for pairing.
-        /// </summary>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="Pin"/>.</returns>
-        Task<Pin> GetPinAsync(CancellationToken cancellationToken = default);
+    /// <summary>
+    /// Get a pin from Ecobee API for pairing.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>A <see cref="Pin"/>.</returns>
+    Task<Pin> GetPinAsync(CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Peforms a POST operation against the Ecobee API.
-        /// </summary>
-        /// <typeparam name="TRequest">The type of request to send to the Ecobee API.</typeparam>
-        /// <typeparam name="TResponse">The type of response from the Ecobee API.</typeparam>
-        /// <param name="request">The request to send to the Ecobee API.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>The response from the Ecobee API.</returns>
-        Task<TResponse> PostAsync<TRequest, TResponse>(TRequest request, CancellationToken cancellationToken = default)
-            where TRequest : RequestBase
-            where TResponse : Response;
-    }
+    /// <summary>
+    /// Peforms a POST operation against the Ecobee API.
+    /// </summary>
+    /// <typeparam name="TRequest">The type of request to send to the Ecobee API.</typeparam>
+    /// <typeparam name="TResponse">The type of response from the Ecobee API.</typeparam>
+    /// <param name="request">The request to send to the Ecobee API.</param>
+
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>The response from the Ecobee API.</returns>
+    Task<TResponse> PostAsync<TRequest, TResponse>(TRequest request, CancellationToken cancellationToken = default)
+        where TRequest : RequestBase
+        where TResponse : Response;
 }

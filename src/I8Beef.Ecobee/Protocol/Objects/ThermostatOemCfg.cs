@@ -1,12 +1,11 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace I8Beef.Ecobee.Protocol.Objects
+namespace I8Beef.Ecobee.Protocol.Objects;
+
+/// <summary>
+/// Ecobee API Thermostat OEM Config.
+/// </summary>
+public class ThermostatOemCfg
 {
-    /// <summary>
-    /// Ecobee API Thermostat OEM Config.
-    /// </summary>
-    public class ThermostatOemCfg
-    {
-        // Not implemented
-    }
+    // Not implemented
 }

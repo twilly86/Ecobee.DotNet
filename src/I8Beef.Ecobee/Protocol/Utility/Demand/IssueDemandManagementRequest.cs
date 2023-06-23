@@ -3,38 +3,37 @@ using System.Collections.Generic;
 using I8Beef.Ecobee.Protocol.Objects;
 using System.Text.Json.Serialization;
 
-namespace I8Beef.Ecobee.Protocol.Utility.Demand
+namespace I8Beef.Ecobee.Protocol.Utility.Demand;
+
+/// <summary>
+/// Ecobee API issue demand management request.
+/// </summary>
+public class IssueDemandManagementRequest : RequestBase
 {
     /// <summary>
-    /// Ecobee API issue demand management request.
+    /// Request URI.
     /// </summary>
-    public class IssueDemandManagementRequest : RequestBase
-    {
-        /// <summary>
-        /// Request URI.
-        /// </summary>
-        public override string Uri { get { return "/demandManagement"; } }
+    public override string Uri => "/demandManagement";
 
-        /// <summary>
-        /// Request type (GET or POST).
-        /// </summary>
-        public override RequestType RequestType { get { return RequestType.POST; } }
+    /// <summary>
+    /// Request type (GET or POST).
+    /// </summary>
+    public override RequestType RequestType => RequestType.POST;
 
-        /// <summary>
-        /// Type to deserialize the response to.
-        /// </summary>
-        public override Type ResponseType { get { return typeof(Response); } }
+    /// <summary>
+    /// Type to deserialize the response to.
+    /// </summary>
+    public override Type ResponseType => typeof(Response);
 
-        /// <summary>
-        /// The selection criteria for update.
-        /// </summary>
-        [JsonPropertyName("selection")]
-        public Selection Selection { get; set; }
+    /// <summary>
+    /// The selection criteria for update.
+    /// </summary>
+    [JsonPropertyName("selection")]
+    public Selection Selection { get; set; }
 
-        /// <summary>
-        /// A list of demand management objects.
-        /// </summary>
-        [JsonPropertyName("dmList")]
-        public IList<DemandManagement> DmList { get; set; }
-    }
+    /// <summary>
+    /// A list of demand management objects.
+    /// </summary>
+    [JsonPropertyName("dmList")]
+    public IList<DemandManagement> DmList { get; set; }
 }

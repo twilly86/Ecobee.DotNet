@@ -1,16 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace I8Beef.Ecobee.Protocol.Objects
+namespace I8Beef.Ecobee.Protocol.Objects;
+
+/// <summary>
+/// Ecobee API Version.
+/// </summary>
+public class Version
 {
     /// <summary>
-    /// Ecobee API Version.
+    /// The thermostat firmware version number.
     /// </summary>
-    public class Version
-    {
-        /// <summary>
-        /// The thermostat firmware version number.
-        /// </summary>
-        [JsonPropertyName("thermostatFirmwareVersion")]
-        public string ThermostatFirmwareVersion { get; set; }
-    }
+    [JsonPropertyName("thermostatFirmwareVersion")]
+    public string ThermostatFirmwareVersion { get; set; }
 }

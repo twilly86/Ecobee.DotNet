@@ -1,18 +1,17 @@
-﻿namespace I8Beef.Ecobee.Protocol
+﻿namespace I8Beef.Ecobee.Protocol;
+
+/// <summary>
+/// Ecobee reuqest types.
+/// </summary>
+public enum RequestType
 {
     /// <summary>
-    /// Ecobee reuqest types.
+    /// GET request.
     /// </summary>
-    public enum RequestType
-    {
-        /// <summary>
-        /// GET request.
-        /// </summary>
-        GET,
+    GET,
 
-        /// <summary>
-        /// POST request.
-        /// </summary>
-        POST
-    }
+    /// <summary>
+    /// POST request.
+    /// </summary>
+    POST
 }
